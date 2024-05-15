@@ -73,7 +73,7 @@ public class Mewten extends Attacker {
 
             getCard().getController().setHit(true);
             try {
-                Thread.sleep(500);
+                Thread.sleep(350);
             } catch (InterruptedException err) {
                 System.out.println("error! take damage thread is interrupted");
                 throw new RuntimeException(err);
@@ -107,7 +107,7 @@ public class Mewten extends Attacker {
 
             getCard().getController().setHit(true);
             try {
-                Thread.sleep(500);
+                Thread.sleep(350);
             } catch (InterruptedException err) {
                 System.out.println("error! take damage thread is interrupted");
                 throw new RuntimeException(err);

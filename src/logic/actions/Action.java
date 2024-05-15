@@ -1,6 +1,8 @@
 package logic.actions;
 
+import javafx.application.Platform;
 import javafx.scene.image.Image;
+import logic.GameController;
 import logic.characters.BaseCharacter;
 import logic.players.Player;
 
@@ -41,15 +43,50 @@ public abstract class Action implements Cloneable {
     public abstract void activate(BaseCharacter targetCharacter);
     public void activateEffect() {};
     public void playEffectAndActivate(BaseCharacter targetCharacter) {
-        new Thread(() -> {
+        Thread sfxThread = new Thread(() -> {
             activateEffect();
+        });
+        sfxThread.start();
+        Thread characterPopUpThread = new Thread(() -> {
+            Action action = this;
+            Platform.runLater(new Runnable() {
+                @Override
+                public void run() {
+                    if(GameController.isEnemyTeam(getUser())) {
+                        GameController.getInstance().getCharacterPopUpController().popUpEnemySide(action);
+                    } else {
+                        GameController.getInstance().getCharacterPopUpController().popUpPlayerSide(action);
+                    }
+                }
+            });
             try {
-                Thread.sleep(1000);
+                Thread.sleep(1500);
             } catch (InterruptedException e) {
                 throw new RuntimeException(e);
             }
             activate(targetCharacter);
-        }).start();
+            try {
+                Thread.sleep(500);
+            } catch (InterruptedException e) {
+                throw new RuntimeException(e);
+            }
+            Platform.runLater(new Runnable() {
+                @Override
+                public void run() {
+                    GameController.getInstance().getCharacterPopUpController().removePopUp();
+                }
+            });
+        });
+        characterPopUpThread.start();
+//        new Thread(() -> {
+//            activateEffect();
+//            try {
+//                Thread.sleep(1000);
+//            } catch (InterruptedException e) {
+//                throw new RuntimeException(e);
+//            }
+//            activate(targetCharacter);
+//        }).start();
     };
     public abstract String getDescription();
 

@@ -78,6 +78,8 @@ public class BattleSceneController implements BaseController {
 
     private Phase nextPhase;
 
+    private CharacterPopUp characterPopUp;
+
     private Pannel pannel;
 
     private PlayerControlBar playerControlBar;
@@ -113,6 +115,8 @@ public class BattleSceneController implements BaseController {
         battleSubScene.setVisible(true);
         battleSubScene.setCamera(pCamera);
         PreDefEffect.applyIdleAnimation(battleSubScene.getCamera(), battleSubScene);
+
+        characterPopUp = new CharacterPopUp();
 
         pannel = new Pannel();
         pannel.setTranslateX(Config.APP_WIDTH - pannel.getMaxWidth());
@@ -256,8 +260,19 @@ public class BattleSceneController implements BaseController {
         timeline.play();
     }
 
+    public AnchorPane getAnchorPane() {
+        return anchorPane;
+    }
+
     public PlayerControlBar getPlayerControlBar() {
         return playerControlBar;
     }
-    public PannelController getPannelController() { return pannel.getController(); }
+
+    public PannelController getPannelController() {
+        return pannel.getController();
+    }
+
+    public CharacterPopUp getCharacterPopUp() {
+        return characterPopUp;
+    }
 }

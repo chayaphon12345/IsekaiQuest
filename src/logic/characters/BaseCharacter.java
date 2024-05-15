@@ -57,6 +57,8 @@ public abstract class BaseCharacter implements Cloneable {
         this.isTargetable = false;
         this.isBot = false;
         this.isModifySpriteSize = false;
+        this.modifyHeight = 0;
+        this.modifyWidth = 0;
     }
 
     public BaseCharacter(String lastname, String name, Stats stats, Image imgIcon, Image imgSprite, Image imgWithBg, Image imgCloseUp, double modifyHeight, double modifyWidth) {
@@ -142,7 +144,7 @@ public abstract class BaseCharacter implements Cloneable {
 
             getCard().getController().setHit(true);
             try {
-                Thread.sleep(500);
+                Thread.sleep(350);
             } catch (InterruptedException err) {
                 System.out.println("error! take damage thread is interrupted");
                 throw new RuntimeException(err);
@@ -358,7 +360,7 @@ public abstract class BaseCharacter implements Cloneable {
         GameController.getInstance().getPlayerTeam().getMembers().forEach((character)->character.setTargetable(false));
         GameController.getInstance().getEnemyTeam().getMembers().forEach((character)->character.setTargetable(false));
         setActionThisTurn(true);
-        action.activate(targetCharacter);
+        action.playEffectAndActivate(targetCharacter);
     }
 
     public void resetTarget(){

@@ -169,7 +169,7 @@ public class GameController {
     public void actionPhase() {
         thread = new Thread(() -> {
             try {
-                timer.setDuration(45000);
+                timer.setDuration(60000);
                 timer.start(() -> {
                     Platform.runLater(new Runnable() {
                         @Override
@@ -237,7 +237,7 @@ public class GameController {
                                 character.getActionPattern().get(character.getActionPatternIndex() % character.getActionPattern().size())
                         ));
                         character.setActionPatternIndex(character.getActionPatternIndex() + 1);
-                        Thread.sleep(1000);
+                        Thread.sleep(2000);
                     } catch (InterruptedException e) {
                         System.out.println("error! thread interrupted during enemy do action");
                         throw new RuntimeException(e);
@@ -398,6 +398,10 @@ public class GameController {
 
     public void setPlayer(Player player) {
         this.player = player;
+    }
+
+    public CharacterPopUpController getCharacterPopUpController() {
+        return battleSceneController.getCharacterPopUp().getController();
     }
 
     public boolean isGameOver() {
