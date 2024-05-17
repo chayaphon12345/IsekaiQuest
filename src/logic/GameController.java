@@ -51,6 +51,10 @@ public class GameController {
         initEnemyTeam();
         SoundManager.getInstance().playBGM(SoundManager.BGM.BATTLE_SCENE);
         timer = new Timer();
+        if(playerControlBarController!=null){
+            playerControlBarController.updateManaBar(player.getCurrentMana());
+            playerControlBarController.updateSpiritBar(player.getCurrentSpirit());
+        }
         play();
     }
 
@@ -117,6 +121,20 @@ public class GameController {
                 reduceEffectDuration();
                 Thread.sleep(500);
                 runEffectByEvent(TriggerEvent.NEW_TURN);
+
+                PlayerControlBarController playerCtrlBarController = playerControlBarController;
+                Platform.runLater(new Runnable() {
+                    @Override
+                    public void run() {
+                        if(playerCtrlBarController != null && playerCtrlBarController.getCharacterControlBar() != null){
+                            BaseCharacter character = getPlayerControlBarController().getCharacterControlBar().getController().getCharacter();
+                            getPlayerControlBarController().hideCharacterControlBar();
+                            getPlayerControlBarController().showCharacterControlBar(
+                                    character
+                            );
+                        }
+                    }
+                });
 
                 if (playerTeam.getMembers().isEmpty()) {
                     isGameOver = true;

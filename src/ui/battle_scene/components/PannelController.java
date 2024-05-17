@@ -19,6 +19,8 @@ import logic.actions.UltimateAction;
 import logic.characters.Attacker;
 import logic.characters.BaseCharacter;
 import logic.characters.CharacterRegistry;
+import logic.effects.Effect;
+import logic.effects.buffs.Buff;
 import manager.SoundManager;
 import ui.common.BaseComponentController;
 import utils.PreDefEffect;
@@ -142,7 +144,7 @@ public class PannelController extends BaseComponentController {
             this.detailHP.setText("HP: " + _character.getStats().getHealth());
             this.detailDEF.setText("DEF: " + _character.getStats().getDefense());
             this.detailMEF.setText("MEF: " + _character.getStats().getMagicDef());
-            this.detailSpiritCost.setText("Spirit Cost: null");
+            this.detailSpiritCost.setText("Spirit Cost: " + _character.getActionList().get(2).getSpiritCost());
             this.detailATK.setText("ATK: " + _character.getStats().getAttack());
             this.detailMAT.setText("MAT: " + _character.getStats().getMagic());
 
@@ -150,9 +152,9 @@ public class PannelController extends BaseComponentController {
             _character.getActionList().forEach(action -> {
                 actionsDetailBox.getChildren().add(actionDetailItem(action));
             });
-//            _character.getStatusEffect().forEach(statusEffect -> {
-//                actionsDetailBox.getChildren().add(actionDetailItem(statusEffect));
-//            });
+            _character.getOwnEffect().forEach(statusEffect -> {
+                actionsDetailBox.getChildren().add(actionDetailItem(statusEffect));
+            });
         }
     }
 
@@ -187,6 +189,41 @@ public class PannelController extends BaseComponentController {
         actionDescription.setWrappingWidth(430);
         actionDescription.setTextAlignment(TextAlignment.JUSTIFY);
         hBox.getChildren().add(actionDescription);
+        vBox.getChildren().add(hBox);
+        return vBox;
+    }
+
+    public VBox actionDetailItem(Effect effect) {
+        VBox vBox = new VBox();
+        vBox.setSpacing(5);
+        vBox.setFillWidth(true);
+
+        GridPane gridPane = new GridPane();
+
+        String effectType = (effect instanceof Buff ? "Buff" : "De-Buff");
+        Text effectName = new Text(effectType + ": " + effect.getName());
+        effectName.getStyleClass().add("normal-text");
+        gridPane.add(effectName, 0, 0);
+
+//        Text manaCost = new Text("Mana Cost: " + action.getManaCost());
+//        manaCost.getStyleClass().add("normal-text");
+//        gridPane.add(manaCost, 1, 0);
+//        GridPane.setHalignment(gridPane.getChildren().get(1), HPos.RIGHT);
+//        GridPane.setHgrow(gridPane.getChildren().get(1), Priority.ALWAYS);
+
+        vBox.getChildren().add(gridPane);
+
+        HBox hBox = new HBox();
+        hBox.setSpacing(10);
+        Rectangle icon = new Rectangle(70, 70, new ImagePattern(effect.getIconImg()));
+        icon.setArcHeight(20);
+        icon.setArcWidth(20);
+        hBox.getChildren().add(icon);
+        Text effectDescription = new Text(effect.getDescription());
+        effectDescription.getStyleClass().add("normal-text");
+        effectDescription.setWrappingWidth(430);
+        effectDescription.setTextAlignment(TextAlignment.JUSTIFY);
+        hBox.getChildren().add(effectDescription);
         vBox.getChildren().add(hBox);
         return vBox;
     }

@@ -79,6 +79,12 @@ public class Mewten extends Attacker {
                 throw new RuntimeException(err);
             }
             getCard().getController().setHit(false);
+            try {
+                Thread.sleep(100);
+            } catch (InterruptedException err) {
+                System.out.println("error! take damage thread is interrupted");
+                throw new RuntimeException(err);
+            }
 
             if(getStats().getHealth() <= 0) {
                 GameController.getInstance().runEffectByEvent(TriggerEvent.HP_LTE_0, this);
@@ -113,6 +119,12 @@ public class Mewten extends Attacker {
                 throw new RuntimeException(err);
             }
             getCard().getController().setHit(false);
+            try {
+                Thread.sleep(100);
+            } catch (InterruptedException err) {
+                System.out.println("error! take damage thread is interrupted");
+                throw new RuntimeException(err);
+            }
 
             if(getStats().getHealth() <= 0) {
                 GameController.getInstance().runEffectByEvent(TriggerEvent.HP_LTE_0, this);

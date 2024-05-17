@@ -47,7 +47,7 @@ public class ActionDetailPopUpController extends BaseComponentController {
     public void showActionDetail(Effect effect) {
         String actionType = (effect instanceof Buff ? "Buff" : effect instanceof Debuff ? "De-Buff" : "Line-Buff");
         detailName.setText(actionType + ": " + effect.getName());
-        detailManaCost.setText(null);
+        detailManaCost.setText("Remaining Duration: " + effect.getDuration());
         detailRect.setFill(new ImagePattern(effect.getIconImg()));
         detailDescription.setText(effect.getDescription());
         getNode().setVisible(true);

@@ -315,10 +315,16 @@ public class CardController extends BaseComponentController implements Selectabl
     }
 
     public void setHit(boolean hit) {
-        if (hit) {
-            SoundManager.getInstance().playSFX("/sounds/hit.mp3", 1);
-        }
-        this.hit.setVisible(hit);
+        ImageView hitImage = this.hit;
+        Platform.runLater(new Runnable() {
+            @Override
+            public void run() {
+                if (hit) {
+                    SoundManager.getInstance().playSFX("/sounds/hit.mp3", 1);
+                }
+                hitImage.setVisible(hit);
+            }
+        });
     }
 
     public ImageView getShield() {

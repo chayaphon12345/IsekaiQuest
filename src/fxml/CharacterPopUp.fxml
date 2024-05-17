@@ -27,7 +27,7 @@
                               <Image url="@../assets/actions/kona/konaSkill.png" />
                            </image>
                         </ImageView>
-                        <Text id="playerActionName" fx:id="playerActionName" fill="WHITE" layoutX="122.0" layoutY="40.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" wrappingWidth="664.3418006896973">
+                        <Text id="playerActionName" fx:id="playerActionName" fill="WHITE" layoutX="122.0" layoutY="40.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" wrappingWidth="418.91565322875977">
                            <font>
                               <Font size="32.0" />
                            </font>
@@ -54,7 +54,7 @@
                               <Image url="@../assets/actions/kona/konaSkill.png" />
                            </image>
                         </ImageView>
-                        <Text id="enemyActionName" fx:id="enemyActionName" fill="WHITE" layoutX="12.0" layoutY="40.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" textAlignment="RIGHT" wrappingWidth="664.3418006896973">
+                        <Text id="enemyActionName" fx:id="enemyActionName" fill="WHITE" layoutX="264.0" layoutY="40.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" textAlignment="RIGHT" wrappingWidth="411.4026527404785">
                            <font>
                               <Font size="32.0" />
                            </font>
