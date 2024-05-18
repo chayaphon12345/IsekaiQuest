@@ -27,5 +27,6 @@ public class Elvene extends Attacker {
                 new Image(Assets.getAsset("/assets/characters/elvene/elveneCloseUp.png"))
         );
         super.setActionList(new ArrayList<Action>(Arrays.asList(new ElveneNormal(this), new ElveneSkill(this), new ElveneUltimate(this))));
+        super.setOwnEffect(new ArrayList<>());
     }
 }

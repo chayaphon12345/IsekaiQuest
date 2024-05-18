@@ -110,6 +110,7 @@ public abstract class BaseCharacter implements Cloneable {
             System.out.println("looking for target...");
             resetTarget();
             GameController.getInstance().setCharactersColorToNormal();
+            action.setFromSkillCard(false);
             getTarget(action);
             return true;
         }

@@ -109,6 +109,7 @@ public class CharacterControlBarController extends BaseComponentController {
                 GameController.getInstance().getCurrentAction().setFromSkillCard(false);
                 if (btn.getText().equals("CANCEL")) {
                     GameController.getInstance().setCurrentAction(null);
+                    GameController.getInstance().getPlayerControlBarController().getCharacterControlBar().getController().getCharacter().resetTarget();
                     GameController.getInstance().setCharactersColorToNormal();
                     btn.setText("USE");
                     return;
@@ -119,6 +120,10 @@ public class CharacterControlBarController extends BaseComponentController {
                 return;
             }
             if (character.performAction(character.getActionList().get((int) btn.getProperties().get("actionIndex")))) {
+                useNormalBtn.setText("USE");
+                useSkillBtn.setText("USE");
+                useUltimateBtn.setText("USE");
+                GameController.getInstance().getPlayerControlBarController().getUseSkillCardButton().setText("USE");
                 btn.setText("CANCEL");
             }
         }
@@ -201,6 +206,18 @@ public class CharacterControlBarController extends BaseComponentController {
 
     public void setCharacter(BaseCharacter character) {
         this.character = character;
+    }
+
+    public Button getUseNormalBtn() {
+        return useNormalBtn;
+    }
+
+    public Button getUseSkillBtn() {
+        return useSkillBtn;
+    }
+
+    public Button getUseUltimateBtn() {
+        return useUltimateBtn;
     }
 
     @Override

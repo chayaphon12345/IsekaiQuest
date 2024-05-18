@@ -87,11 +87,35 @@ public class PlayerControlBarController extends BaseComponentController {
         skillCardButtonEventHandler = new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent mouseEvent) {
-                skillCard.performAction();
+
+                System.out.println("button clicked!");
+                //Button btn = (Button) actionEvent.getSource();
+                if (GameController.getInstance().getCurrentAction() != null) {
+                    GameController.getInstance().getCurrentAction().setFromSkillCard(true);
+                    if (useSkillCardButton.getText().equals("CANCEL")) {
+                        GameController.getInstance().setCurrentAction(null);
+                        GameController.getInstance().getPlayerControlBarController().getCharacterControlBar().getController().getCharacter().resetTarget();
+                        GameController.getInstance().setCharactersColorToNormal();
+                        useSkillCardButton.setText("USE");
+                        return;
+                    }
+                }
+//                if (useSkillCardButton.getProperties().get("actionIndex") == null) {
+//                    System.out.println("No action index found");
+//                    return;
+//                }
+                if (skillCardImg.isVisible() && !useSkillCardButton.isDisable()) {
+                    skillCard.performAction();
+                    getCharacterControlBar().getController().getUseNormalBtn().setText("USE");
+                    getCharacterControlBar().getController().getUseSkillBtn().setText("USE");
+                    getCharacterControlBar().getController().getUseUltimateBtn().setText("USE");
+                    useSkillCardButton.setText("CANCEL");
+                }
             }
         };
 
         useSkillCardButton.addEventHandler(MouseEvent.MOUSE_CLICKED, skillCardButtonEventHandler);
+        useSkillCardButton.setText("USE");
     }
 
     public void unsetSkillCard() {
@@ -106,6 +130,10 @@ public class PlayerControlBarController extends BaseComponentController {
 
     public void setCharacterControlBar(CharacterControlBar characterControlBar) {
         this.characterControlBar = characterControlBar;
+    }
+
+    public Button getUseSkillCardButton() {
+        return useSkillCardButton;
     }
 
     @Override
