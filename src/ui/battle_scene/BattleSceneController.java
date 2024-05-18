@@ -239,6 +239,9 @@ public class BattleSceneController implements BaseController {
     public void handleGameEndButton() {
         SoundManager.getInstance().playSFX(SoundManager.SFX.CLICK_DEFAULT);
         this.actionDetailPopUp.getController().hideActionDetail();
+        GameController.getInstance().setCurrentAction(null);
+        GameController.getInstance().getPlayerControlBarController().getCharacterControlBar().getController().getCharacter().resetTarget();
+        GameController.getInstance().setCharactersColorToNormal();
         GameController.getInstance().stopThread();
         Router.getInstance().push(router.Config.AppScene.MAIN_MENU);
     }

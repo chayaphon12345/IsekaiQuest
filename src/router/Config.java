@@ -14,7 +14,7 @@ import java.util.Map;
  */
 public class Config {
     private Config() {}
-    public static final AppScene START_SCENE = AppScene.HOME;
+    public static final AppScene START_SCENE = AppScene.MAIN_MENU;
     public enum AppScene {
         HOME, BATTLE, MAIN_MENU
     }
