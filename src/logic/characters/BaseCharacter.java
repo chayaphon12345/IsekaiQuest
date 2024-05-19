@@ -1,7 +1,10 @@
 package logic.characters;
 
+import javafx.animation.FadeTransition;
+import javafx.animation.SequentialTransition;
 import javafx.application.Platform;
 import javafx.scene.image.Image;
+import javafx.util.Duration;
 import logic.GameController;
 import logic.Phase;
 import logic.actions.ActionType;
@@ -116,6 +119,37 @@ public abstract class BaseCharacter implements Cloneable {
         }
         else{
             System.out.println("not enough cost or already done action");
+            Thread errorThread = new Thread(new Runnable() {
+                @Override
+                public void run() {
+                    // Create a fade-in transition
+                    FadeTransition fadeInTransition = new FadeTransition(Duration.seconds(0.5), GameController.getInstance().getBattleSceneController().getActionErrorPane());
+                    fadeInTransition.setFromValue(0);
+                    fadeInTransition.setToValue(1);
+
+                    // Create a fade-out transition
+                    FadeTransition fadeOutTransition = new FadeTransition(Duration.seconds(3), GameController.getInstance().getBattleSceneController().getActionErrorPane());
+                    fadeOutTransition.setFromValue(1);
+                    fadeOutTransition.setToValue(0);
+
+                    // Chain the fade transitions
+                    SequentialTransition fadeSequentialTransition = new SequentialTransition();
+                    fadeSequentialTransition.getChildren().addAll(fadeInTransition, fadeOutTransition);
+
+                    // Start the fade sequential transition
+                    fadeSequentialTransition.play();
+                    GameController.getInstance().getBattleSceneController().getActionErrorPane().setVisible(true);
+
+//                    GameController.getInstance().getBattleSceneController().getActionErrorPane().setVisible(true);
+//                    try{
+//                        Thread.sleep(1000);
+//                    } catch (InterruptedException e) {
+//
+//                    }
+//                    GameController.getInstance().getBattleSceneController().getActionErrorPane().setVisible(false);
+                }
+            });
+            errorThread.start();
             // handle later
             return false;
         }
@@ -468,20 +502,26 @@ public abstract class BaseCharacter implements Cloneable {
     public void setShield(int shield) {
         if(shield <= 0) {
             this.shield = 0;
+            int shieldNum = this.shield;
             BaseCharacter character = this;
             Platform.runLater(new Runnable() {
                 @Override
                 public void run() {
+                    getCard().getController().setShieldText(Integer.toString(shieldNum));
                     getCard().getController().getShield().setVisible(false);
+                    getCard().getController().getShieldText().setVisible(false);
                 }
             });
         } else {
             this.shield = shield;
+            int shieldNum = this.shield;
             BaseCharacter character = this;
             Platform.runLater(new Runnable() {
                 @Override
                 public void run() {
+                    getCard().getController().setShieldText(Integer.toString(shieldNum));
                     getCard().getController().getShield().setVisible(true);
+                    getCard().getController().getShieldText().setVisible(true);
                 }
             });
         }

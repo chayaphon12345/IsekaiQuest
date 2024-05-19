@@ -31,13 +31,14 @@ public class DevilSageSkill extends SkillAction implements Debuffable {
         ArrayList<BaseCharacter> playerTeam = GameController.getInstance().getPlayerTeam().getMembers();
         for(int i=0; i<playerTeam.size(); i++) {
             playerTeam.get(i).takeDamageDirectly(getUser(), 10, type);
+            playerTeam.get(i).setShield(0);
             giveDebuff(playerTeam.get(i));
         }
     }
 
     @Override
     public String getDescription() {
-        return "Directly attack all enemy for 10 damage. And give them a debuff 'Broken Armor' for 2 turns.";
+        return "Directly attack all enemy for 10 damage. Then break all enemy's shield and give them a de-buff 'Broken Armor' for 2 turns.";
     }
 
     @Override

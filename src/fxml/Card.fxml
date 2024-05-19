@@ -8,9 +8,10 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<StackPane fx:id="cardPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="195.0" prefWidth="153.0" xmlns="http://javafx.com/javafx/null" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.battle_scene.components.CardController">
+<StackPane fx:id="cardPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="195.0" prefWidth="153.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.battle_scene.components.CardController">
    <children>
       <Rectangle fx:id="bg_rect" arcHeight="5.0" arcWidth="5.0" fill="#ffd2bb" height="150.0" stroke="BLACK" strokeType="INSIDE" width="100.0" />
       <AnchorPane prefHeight="168.0" prefWidth="139.0">
@@ -46,9 +47,9 @@
             <Insets bottom="160.0" />
          </StackPane.margin>
       </ImageView>
-      <AnchorPane prefHeight="195.0" prefWidth="213.0">
+      <AnchorPane prefHeight="195.0" prefWidth="213.0" rotate="50.0">
          <children>
-            <ImageView fx:id="shield" fitHeight="103.0" fitWidth="133.0" layoutX="10.0" layoutY="46.0" pickOnBounds="true" preserveRatio="true" rotate="50.0">
+            <ImageView fx:id="shield" fitHeight="103.0" fitWidth="133.0" layoutX="10.0" layoutY="46.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../assets/images/shield.png" />
                </image>
@@ -56,7 +57,18 @@
                   <Point3D x="1.0" />
                </rotationAxis>
             </ImageView>
+            <Text id="shieldText" fx:id="shieldText" fill="WHITE" layoutX="53.0" layoutY="77.0" stroke="BLACK" strokeType="OUTSIDE" text="shield" textAlignment="CENTER" wrappingWidth="43.999999999999886">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+               <rotationAxis>
+                  <Point3D x="1.0" />
+               </rotationAxis>
+            </Text>
          </children>
+         <rotationAxis>
+            <Point3D x="1.0" />
+         </rotationAxis>
       </AnchorPane>
       <AnchorPane prefHeight="21.0" prefWidth="153.0">
          <children>

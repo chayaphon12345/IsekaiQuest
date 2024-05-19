@@ -46,7 +46,6 @@ public class BrokenArmor extends Debuff{
         Stats newStats = effectReceiver.getStats();
         newStats.setDefense(0);
         newStats.setMagicDef(0);
-        effectReceiver.setShield(0);
         effectReceiver.setStats(newStats);
     }
 

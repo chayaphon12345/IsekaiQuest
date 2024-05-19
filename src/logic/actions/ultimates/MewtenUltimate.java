@@ -48,13 +48,14 @@ public class MewtenUltimate extends UltimateAction implements Debuffable {
 
         ArrayList<BaseCharacter> enemyTeam = GameController.getInstance().getEnemyTeam().getMembers();
         for(int i=0; i<enemyTeam.size(); i++) {
+            enemyTeam.get(i).setShield(0);
             giveDebuff(enemyTeam.get(i));
         }
     }
 
     @Override
     public String getDescription() {
-        return "Attack all enemy on a target line. Damage base on own ATK + 7. Then give every enemy a debuff 'Broken Armor' for 2 turns.";
+        return "Attack all enemy on a target line. Damage base on own ATK + 7. Then break all enemy's shield and give every enemy a debuff 'Broken Armor' for 2 turns.";
     }
 
     @Override

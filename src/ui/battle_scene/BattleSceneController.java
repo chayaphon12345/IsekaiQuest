@@ -76,6 +76,9 @@ public class BattleSceneController implements BaseController {
     @FXML
     private Button abandonButton;
 
+    @FXML
+    private StackPane actionErrorPane;
+
     private Phase nextPhase;
 
     private CharacterPopUp characterPopUp;
@@ -124,6 +127,8 @@ public class BattleSceneController implements BaseController {
 
         playerControlBar = new PlayerControlBar();
         anchorPane.getChildren().add(playerControlBar);
+
+        actionErrorPane.setVisible(false);
 
         actionDetailPopUp = new ActionDetailPopUp();
         actionDetailPopUp.setTranslateX(Config.APP_WIDTH - actionDetailPopUp.getMaxWidth() - 20);
@@ -262,6 +267,10 @@ public class BattleSceneController implements BaseController {
                     new KeyValue(timerRect.widthProperty(), targetWidth, Interpolator.EASE_BOTH)));
 
         timeline.play();
+    }
+
+    public StackPane getActionErrorPane() {
+        return actionErrorPane;
     }
 
     public AnchorPane getAnchorPane() {

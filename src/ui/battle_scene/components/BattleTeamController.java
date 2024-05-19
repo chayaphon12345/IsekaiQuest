@@ -81,7 +81,10 @@ public class BattleTeamController extends BaseComponentController {
         for (int i = 0; i < team.getMembers().size(); i++) {
             BaseCharacter character = team.getMembers().get(i);
             character.getCard().getController().updateCardHp();
-            if (character.getShield() > 0) character.getCard().getController().getShield().setVisible(true);
+            if (character.getShield() > 0) {
+                character.getCard().getController().getShield().setVisible(true);
+                character.getCard().getController().getShieldText().setVisible(true);
+            }
             character.getCard().getController().setEffect(character.getStatusEffect());
         }
         for (int i = 0; i < team.getFront().size(); i++) {

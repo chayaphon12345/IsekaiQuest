@@ -48,6 +48,8 @@ public class CardController extends BaseComponentController implements Selectabl
     @FXML
     private ImageView shield;
     @FXML
+    private Text shieldText;
+    @FXML
     private ImageView effect1;
     @FXML
     private ImageView effect2;
@@ -66,6 +68,7 @@ public class CardController extends BaseComponentController implements Selectabl
     public void init() {
         hit.setVisible(false);
         shield.setVisible(false);
+        shieldText.setVisible(false);
         cardStatusEffects = new ArrayList<>();
         cardStatusEffects.addAll(Arrays.asList(effect1, effect2, effect3, effect4));
         // this make pickup base on geometric shape of this node
@@ -255,6 +258,9 @@ public class CardController extends BaseComponentController implements Selectabl
             cardImage.setFitHeight(character.getModifyHeight());
             cardImage.setFitWidth(character.getModifyWidth());
         }
+        if(character.getShield() > 0){
+            setShieldText(Integer.toString(character.getShield()));
+        }
     }
 
     public void updateCardHp() {
@@ -329,6 +335,14 @@ public class CardController extends BaseComponentController implements Selectabl
 
     public ImageView getShield() {
         return shield;
+    }
+
+    public Text getShieldText() {
+        return shieldText;
+    }
+
+    public void setShieldText(String shieldText) {
+        this.shieldText.setText(shieldText);
     }
 
     public ImageView getCardImage() {
