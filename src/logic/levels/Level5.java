@@ -7,7 +7,7 @@ import logic.team.Team;
 
 public class Level5 extends Level {
     public Level5() {
-        super(new Team("Enemy"));
+        super(new Team("Enemy"), 3);
         addMember();
     }
 

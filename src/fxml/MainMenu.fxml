@@ -9,14 +9,16 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.paint.Color?>
 <?import javafx.scene.shape.Circle?>
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="900.0" prefWidth="1600.0" style="-fx-background-color: #976C5F;" xmlns="http://javafx.com/javafx/null" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.mainMenu.MainMenuController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="900.0" prefWidth="1600.0" style="-fx-background-color: #976C5F;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.mainMenu.MainMenuController">
    <children>
       <ImageView fitHeight="1223.0" fitWidth="1822.0" layoutY="-317.0" pickOnBounds="true" preserveRatio="true">
          <image>
@@ -48,7 +50,7 @@
       </AnchorPane>
       <StackPane layoutX="771.0" layoutY="104.0" prefHeight="58.0" prefWidth="133.0">
          <children>
-            <Rectangle arcHeight="20.0" arcWidth="20.0" fill="#8c5a54" height="58.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="216.0" />
+            <Rectangle arcHeight="20.0" arcWidth="20.0" fill="#6b4d4b" height="58.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="216.0" />
             <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: 700;" text="Mission">
                <font>
                   <Font name="Inter Regular" size="32.0" />
@@ -163,5 +165,46 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </Circle>
+      <StackPane fx:id="difficultyBlock" id="difficultyBlock" layoutX="846.0" layoutY="700.0" prefHeight="127.0" prefWidth="328.0">
+         <children>
+            <VBox prefHeight="128.0" prefWidth="300.0" style="-fx-background-color: #846961;">
+               <children>
+                  <AnchorPane prefHeight="65.0" prefWidth="305.0" style="-fx-background-color: #6b4d4b;">
+                     <children>
+                        <Text fill="WHITE" layoutX="95.0" layoutY="43.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-text-alignment: center;" text="Difficulty" textAlignment="CENTER">
+                           <font>
+                              <Font name="System Bold" size="32.0" />
+                           </font>
+                        </Text>
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane prefHeight="64.0" prefWidth="303.0">
+                     <children>
+                        <HBox layoutX="4.0" layoutY="-1.0" prefHeight="64.0" prefWidth="326.0">
+                           <children>
+                              <ImageView fitHeight="64.0" fitWidth="64.0" pickOnBounds="true" preserveRatio="true" />
+                              <ImageView fx:id="skull1" id="skull1" fitHeight="64.0" fitWidth="64.0" layoutX="10.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../assets/images/skullIcon.png" />
+                                 </image>
+                              </ImageView>
+                              <ImageView fx:id="skull2" id="skull2" fitHeight="64.0" fitWidth="64.0" layoutX="74.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../assets/images/brownSkull.png" />
+                                 </image>
+                              </ImageView>
+                              <ImageView fx:id="skull3" id="skull3" fitHeight="64.0" fitWidth="64.0" layoutX="10.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../assets/images/brownSkull.png" />
+                                 </image></ImageView>
+                              <ImageView fitHeight="64.0" fitWidth="64.0" layoutX="10.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true" />
+                           </children>
+                        </HBox>
+                     </children>
+                  </AnchorPane>
+               </children>
+            </VBox>
+         </children>
+      </StackPane>
    </children>
 </AnchorPane>

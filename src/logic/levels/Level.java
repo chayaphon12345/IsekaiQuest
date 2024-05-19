@@ -10,11 +10,14 @@ import logic.team.Team;
  */
 public abstract class Level {
     private Team enemyTeam;
+    private int levelDifficulty;
 
-    public Level(Team enemyTeam) {
+    public Level(Team enemyTeam, int levelDifficulty) {
         this.enemyTeam = enemyTeam;
+        this.levelDifficulty = levelDifficulty;
     }
     abstract protected void addMember();
     public Team getEnemyTeam() { return enemyTeam; }
-    public Image getImgIcon() {return getEnemyTeam().getRear().get(0).getImgIcon(); }
+    public Image getImgIcon() { return getEnemyTeam().getRear().get(0).getImgIcon(); }
+    public int getLevelDifficulty() { return levelDifficulty; }
 }

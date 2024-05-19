@@ -5,6 +5,7 @@ import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.StackPane;
 import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Circle;
 import logic.levels.Level;
@@ -37,6 +38,14 @@ public class MainMenuController implements BaseController {
     private Button startButton;
     @FXML
     private ImageView characterImage;
+    @FXML
+    private StackPane difficultyBlock;
+    @FXML
+    private ImageView skull1;
+    @FXML
+    private ImageView skull2;
+    @FXML
+    private ImageView skull3;
 
     private Circle selectedCircle;
     private Animation characterAnimation;
@@ -69,10 +78,12 @@ public class MainMenuController implements BaseController {
                 SoundManager.getInstance().playSFX(SoundManager.SFX.CLICK_LEVEL);
                 LevelManager.getInstance().setCurrentLevel(finalI + 1);
                 selectCircle(circles.get(finalI));
+                displayDifficulty(finalI);
             });
         }
         PreDefEffect.applyAnimation2(startButton);
         startButton.addEventHandler(MouseEvent.MOUSE_ENTERED, event -> SoundManager.getInstance().playSFX(SoundManager.SFX.HOVER_DEFAULT));
+        difficultyBlock.setVisible(false);
     }
 
     @Override
@@ -106,7 +117,37 @@ public class MainMenuController implements BaseController {
 
     public void goButtonHandler() {
         characterAnimation.stop();
+        difficultyBlock.setVisible(false);
         SoundManager.getInstance().playSFX(SoundManager.SFX.CLICK_DEFAULT);
         Router.getInstance().push(Config.AppScene.BATTLE);
+    }
+
+    public void displayDifficulty(int level) {
+        int levelDifficulty = LevelManager.getInstance().getLevelInfo(level + 1).getLevelDifficulty();
+        switch (levelDifficulty) {
+            case 1:
+                difficultyBlock.setVisible(true);
+                skull1.setImage(new Image(Assets.getAsset("/assets/images/skullIcon.png")));
+                skull2.setImage(new Image(Assets.getAsset("/assets/images/brownSkull.png")));
+                skull3.setImage(new Image(Assets.getAsset("/assets/images/brownSkull.png")));
+                break;
+            case 2:
+                difficultyBlock.setVisible(true);
+                skull1.setImage(new Image(Assets.getAsset("/assets/images/skullIcon.png")));
+                skull2.setImage(new Image(Assets.getAsset("/assets/images/skullIcon.png")));
+                skull3.setImage(new Image(Assets.getAsset("/assets/images/brownSkull.png")));
+                break;
+            case 3:
+                difficultyBlock.setVisible(true);
+                skull1.setImage(new Image(Assets.getAsset("/assets/images/skullIcon.png")));
+                skull2.setImage(new Image(Assets.getAsset("/assets/images/skullIcon.png")));
+                skull3.setImage(new Image(Assets.getAsset("/assets/images/skullIcon.png")));
+                break;
+            default:
+                difficultyBlock.setVisible(true);
+                skull1.setImage(new Image(Assets.getAsset("/assets/images/skullIcon.png")));
+                skull2.setImage(new Image(Assets.getAsset("/assets/images/brownSkull.png")));
+                skull3.setImage(new Image(Assets.getAsset("/assets/images/brownSkull.png")));
+        }
     }
 }
