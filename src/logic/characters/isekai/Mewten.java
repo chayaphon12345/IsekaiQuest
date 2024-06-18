@@ -60,11 +60,13 @@ public class Mewten extends Attacker {
                 defense = stats.getDefense();
             }
             damage -= defense;
+            getCard().getController().displayDamage(damage);
             if(damage>0 && shield>0) {
                 int shield = this.shield;
                 setShield(shield - damage);
                 damage -= shield;
             }
+
             if(damage>0) {
                 Stats newStats = getStats();
                 newStats.setHealth(newStats.getHealth() - damage);
@@ -104,6 +106,7 @@ public class Mewten extends Attacker {
                 damage = 0;
                 setPerfectGuard(false);
             }
+            getCard().getController().displayDamage(damage);
 
             if(damage>0) {
                 Stats newStats = getStats();

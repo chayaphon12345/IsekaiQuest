@@ -53,14 +53,11 @@ public class ElveneSkill extends SkillAction {
                 enemieTeam.getRear().get(i).takeDamage(getUser(), getUser().getStats().getAttack() - damageDecreaseByRange, type);
             }
         }
-
-        enemieTeam.getRear().get(0).takeDamageDirectly(getUser(), 8, type);
     }
 
     @Override
     public String getDescription() {
         return "Attack every enemy on the target line in any range. The damage base on own ATK. " +
-                "The damage will be decrease by 5 for every 1 line away from the first line that has enemy." +
-                "Besides that directly attack 8 damage to a enemy on the rear line.";
+                "The damage will be decrease by 5 for every 1 line away from the first line that has enemy.";
     }
 }

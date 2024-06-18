@@ -123,5 +123,17 @@
             </AnchorPane>
          </children>
       </AnchorPane>
+      <AnchorPane prefHeight="195.0" prefWidth="213.0">
+         <children>
+            <Text id="damageText" fx:id="damageText" fill="WHITE" layoutX="45.0" layoutY="85.0" rotate="50.0" stroke="BLACK" strokeType="OUTSIDE" text="damage" textAlignment="CENTER" wrappingWidth="62.36523413658131">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+               <rotationAxis>
+                  <Point3D x="1.0" />
+               </rotationAxis>
+            </Text>
+         </children>
+      </AnchorPane>
    </children>
 </StackPane>

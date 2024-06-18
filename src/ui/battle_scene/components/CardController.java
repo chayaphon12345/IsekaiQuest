@@ -1,5 +1,8 @@
 package ui.battle_scene.components;
 
+import javafx.animation.FadeTransition;
+import javafx.animation.ScaleTransition;
+import javafx.animation.SequentialTransition;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.geometry.Point2D;
@@ -12,6 +15,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.StackPane;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Text;
+import javafx.util.Duration;
 import logic.GameController;
 import logic.Phase;
 import logic.actions.UltimateAction;
@@ -50,6 +54,8 @@ public class CardController extends BaseComponentController implements Selectabl
     @FXML
     private Text shieldText;
     @FXML
+    private Text damageText;
+    @FXML
     private ImageView effect1;
     @FXML
     private ImageView effect2;
@@ -69,6 +75,7 @@ public class CardController extends BaseComponentController implements Selectabl
         hit.setVisible(false);
         shield.setVisible(false);
         shieldText.setVisible(false);
+        damageText.setVisible(false);
         cardStatusEffects = new ArrayList<>();
         cardStatusEffects.addAll(Arrays.asList(effect1, effect2, effect3, effect4));
         // this make pickup base on geometric shape of this node
@@ -243,6 +250,59 @@ public class CardController extends BaseComponentController implements Selectabl
         colorAdjust.setSaturation(0);
         colorAdjust.setBrightness(0);
         cardImage.setEffect(colorAdjust);
+    }
+
+    public void displayDamage(int damage) {
+        if (damage < 0) damage = 0;
+        int dmg = damage;
+        Thread damageThread = new Thread(() -> {
+            Platform.runLater(new Runnable() {
+                @Override
+                public void run() {
+                    damageText.setText(Integer.toString(dmg));
+                    damageText.setVisible(true);
+
+                    double damageSize = ((dmg/20.0) + 3.0) / 4;
+
+                    ScaleTransition scaleTransition = new ScaleTransition(Duration.seconds(0.5), damageText);
+                    scaleTransition.setFromX(4.0 * damageSize );
+                    scaleTransition.setFromY(4.0 * damageSize );
+                    scaleTransition.setToX(2.0 * damageSize );
+                    scaleTransition.setToY(2.0 * damageSize );
+
+                    // Create a fade-in transition
+                    FadeTransition fadeInTransition = new FadeTransition(Duration.seconds(0.7), damageText);
+                    fadeInTransition.setFromValue(0);
+                    fadeInTransition.setToValue(1);
+
+                    // Create a fade-out transition
+                    FadeTransition fadeOutTransition = new FadeTransition(Duration.seconds(0.7), damageText);
+                    fadeOutTransition.setFromValue(1);
+                    fadeOutTransition.setToValue(0);
+
+                    // Chain the fade transitions
+                    SequentialTransition fadeSequentialTransition = new SequentialTransition();
+                    fadeSequentialTransition.getChildren().addAll(fadeInTransition, fadeOutTransition);
+
+                    // Start the fade sequential transition
+                    fadeSequentialTransition.play();
+
+                    scaleTransition.play();
+                }
+            });
+            try {
+                Thread.sleep(1400);
+            } catch (InterruptedException e) {
+                throw new RuntimeException(e);
+            }
+            Platform.runLater(new Runnable() {
+                @Override
+                public void run() {
+                    damageText.setVisible(false);
+                }
+            });
+        });
+        damageThread.start();
     }
 
     @Override

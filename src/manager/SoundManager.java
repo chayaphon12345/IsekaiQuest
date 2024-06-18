@@ -31,7 +31,7 @@ public class SoundManager {
     private HashMap<BGM, Pair<String, Double>> bgmMap = new HashMap<>(
             Map.of(
                     BGM.MAIN_MENU, new Pair<>("/sounds/Adventure.mp3", 0.5),
-                    BGM.BATTLE_SCENE, new Pair<>("/sounds/STREAMING-thunderstorm-in-kyoto-zac-tiessen-main-version-23958-01-30.mp3", 0.25)
+                    BGM.BATTLE_SCENE, new Pair<>("/sounds/battleBgm01 - EigHt.mp3", 0.2)
             )
     );
 

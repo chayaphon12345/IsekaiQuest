@@ -166,6 +166,7 @@ public abstract class BaseCharacter implements Cloneable {
                 defense = stats.getDefense();
             }
             damage -= defense;
+            getCard().getController().displayDamage(damage);
             if(damage>0 && shield>0) {
                 int shield = this.shield;
                 setShield(shield - damage);
@@ -206,6 +207,7 @@ public abstract class BaseCharacter implements Cloneable {
         Thread thread = new Thread(()->{
             System.out.println(name + " is directly attacked by " + attacker.getName());
             int damage = (int) (dmg * attacker.getDamageMultiplier());
+            getCard().getController().displayDamage(damage);
 
             if(damage>0) {
                 Stats newStats = getStats();
@@ -425,6 +427,13 @@ public abstract class BaseCharacter implements Cloneable {
     }
 
     public void updateCheckAlive() {
+        if(!isAlive()) {
+            try {
+                Thread.sleep(1400);
+            } catch (InterruptedException e) {
+                throw new RuntimeException(e);
+            }
+        }
         Platform.runLater(new Runnable() {
             @Override
             public void run() {

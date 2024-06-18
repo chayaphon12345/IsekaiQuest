@@ -23,7 +23,7 @@ public class Dullahan extends Support {
         super(
                 "",
                 "Dullahan",
-                new Stats(250, 21, 20, 40, 25),
+                new Stats(250, 45, 25, 40, 25),
                 new Image(Assets.getAsset("/assets/characters/enemy/dullahan/icon.png")),
                 new Image(Assets.getAsset("/assets/characters/enemy/dullahan/dullahan.png")),
                 new Image(Assets.getAsset("/assets/characters/enemy/dullahan/dullahanWithBg.png")),
@@ -41,7 +41,7 @@ public class Dullahan extends Support {
         super(
                 "",
                 "Dullahan",
-                new Stats(250, 21, 20, 40, 25),
+                new Stats(250, 45, 20, 40, 25),
                 new Image(Assets.getAsset("/assets/characters/enemy/dullahan/icon.png")),
                 new Image(Assets.getAsset("/assets/characters/enemy/dullahan/dullahan.png")),
                 new Image(Assets.getAsset("/assets/characters/enemy/dullahan/dullahanWithBg.png")),
