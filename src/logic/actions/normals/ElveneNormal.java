@@ -20,7 +20,7 @@ public class ElveneNormal extends NormalAction {
                 "No Escape!",
                 3,
                 new Image(Assets.getAsset("/assets/actions/elvene/elveneNormal.png")),
-                Target.AllEnemy
+                Target.Enemy
         );
         type = ActionType.Physical;
     }

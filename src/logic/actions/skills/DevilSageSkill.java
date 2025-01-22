@@ -22,7 +22,7 @@ public class DevilSageSkill extends SkillAction implements Debuffable {
                 "Defense Collapse",
                 5,
                 new Image(Assets.getAsset("/assets/actions/enemy/enemyAction.png")),
-                Target.AllEnemy
+                Target.Enemy
         );
         type = ActionType.Magical;
     }

@@ -20,7 +20,7 @@ public class SoulWarrior extends Attacker {
         super(
                 "",
                 "Soul Warrior",
-                new Stats(230, 24, 25, 15, 25),
+                new Stats(230, 24, 25, 15, 25, 45, 30, 12),
                 new Image(Assets.getAsset("/assets/characters/enemy/skeleton/icon.png")),
                 new Image(Assets.getAsset("/assets/characters/enemy/soulWarrior/soulWarrior.png")),
                 new Image(Assets.getAsset("/assets/characters/enemy/skeleton/skeletonWithBg.png")),
@@ -35,7 +35,7 @@ public class SoulWarrior extends Attacker {
         super(
                 "",
                 "Soul Warrior",
-                new Stats(280, 24, 25, 15, 25),
+                new Stats(280, 24, 25, 15, 25, 45, 30, 12),
                 new Image(Assets.getAsset("/assets/characters/enemy/skeleton/icon.png")),
                 new Image(Assets.getAsset("/assets/characters/enemy/soulWarrior/soulWarrior.png")),
                 new Image(Assets.getAsset("/assets/characters/enemy/skeleton/skeletonWithBg.png")),

@@ -17,7 +17,7 @@ public class Skeleton extends Attacker {
         super(
                 "",
                 "Skeleton",
-                new Stats(200, 30, 20, 5, 15),
+                new Stats(200, 30, 20, 5, 15, 35, 25, 15),
                 new Image(Assets.getAsset("/assets/characters/enemy/skeleton/icon.png")),
                 new Image(Assets.getAsset("/assets/characters/enemy/skeleton/skeleton.png")),
                 new Image(Assets.getAsset("/assets/characters/enemy/skeleton/skeletonWithBg.png")),
@@ -32,7 +32,7 @@ public class Skeleton extends Attacker {
         super(
                 "",
                 "Skeleton",
-                new Stats(200, 30, 20, 5, 15),
+                new Stats(200, 30, 20, 5, 15, 35, 25, 15),
                 new Image(Assets.getAsset("/assets/characters/enemy/skeleton/icon.png")),
                 new Image(Assets.getAsset("/assets/characters/enemy/skeleton/skeleton.png")),
                 new Image(Assets.getAsset("/assets/characters/enemy/skeleton/skeletonWithBg.png")),

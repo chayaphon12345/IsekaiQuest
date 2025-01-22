@@ -17,7 +17,7 @@ public class Golem extends Attacker {
         super(
                 "",
                 "Golem",
-                new Stats(405, 18, 26, 0, 10),
+                new Stats(405, 18, 26, 0, 10, 55, 24, 5),
                 new Image(Assets.getAsset("/assets/characters/enemy/golem/icon.png")),
                 new Image(Assets.getAsset("/assets/characters/enemy/golem/golem.png")),
                 new Image(Assets.getAsset("/assets/characters/enemy/golem/golemWithBg.png")),
@@ -33,7 +33,7 @@ public class Golem extends Attacker {
         super(
                 "",
                 "Golem",
-                new Stats(405, 18, 26, 0, 10),
+                new Stats(405, 18, 26, 0, 10, 55, 24, 5),
                 new Image(Assets.getAsset("/assets/characters/enemy/golem/icon.png")),
                 new Image(Assets.getAsset("/assets/characters/enemy/golem/golem.png")),
                 new Image(Assets.getAsset("/assets/characters/enemy/golem/golemWithBg.png")),

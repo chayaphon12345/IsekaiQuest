@@ -23,7 +23,7 @@ public class DevilSage extends Support {
         super(
                 "",
                 "Devil Sage",
-                new Stats(320, 15, 13, 50, 25),
+                new Stats(320, 15, 13, 50, 25, 30, 45, 15),
                 new Image(Assets.getAsset("/assets/characters/enemy/devilSage/icon.png")),
                 new Image(Assets.getAsset("/assets/characters/enemy/devilSage/devilSage.png")),
                 new Image(Assets.getAsset("/assets/characters/enemy/devilSage/devilSageWithBg.png")),
@@ -40,7 +40,7 @@ public class DevilSage extends Support {
         super(
                 "",
                 "Devil Sage",
-                new Stats(320, 15, 13, 50, 25),
+                new Stats(320, 15, 13, 50, 25, 30, 45, 15),
                 new Image(Assets.getAsset("/assets/characters/enemy/devilSage/icon.png")),
                 new Image(Assets.getAsset("/assets/characters/enemy/devilSage/devilSage.png")),
                 new Image(Assets.getAsset("/assets/characters/enemy/devilSage/devilSageWithBg.png")),

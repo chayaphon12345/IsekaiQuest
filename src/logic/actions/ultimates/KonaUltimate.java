@@ -27,7 +27,7 @@ public class KonaUltimate extends UltimateAction implements Debuffable {
                 "Dragon God Descendant's Flame of Calamity",
                 0,
                 new Image(Assets.getAsset("/assets/actions/kona/konaUltimate.png")),
-                Target.AllEnemy
+                Target.Enemy
         );
         type = ActionType.Magical;
         this.spiritCost = 30;

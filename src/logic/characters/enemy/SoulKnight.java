@@ -20,7 +20,7 @@ public class SoulKnight extends Attacker {
         super(
                 "",
                 "Soul Knight",
-                new Stats(200, 28, 15, 20, 16),
+                new Stats(200, 28, 15, 20, 16, 25, 40, 20),
                 new Image(Assets.getAsset("/assets/characters/enemy/skeleton/icon.png")),
                 new Image(Assets.getAsset("/assets/characters/enemy/soulKnight/soulKnight.png")),
                 new Image(Assets.getAsset("/assets/characters/enemy/skeleton/skeletonWithBg.png")),
@@ -35,7 +35,7 @@ public class SoulKnight extends Attacker {
         super(
                 "",
                 "Soul Knight",
-                new Stats(200, 28, 15, 20, 16),
+                new Stats(200, 28, 15, 20, 16, 25, 40, 20),
                 new Image(Assets.getAsset("/assets/characters/enemy/skeleton/icon.png")),
                 new Image(Assets.getAsset("/assets/characters/enemy/soulKnight/soulKnight.png")),
                 new Image(Assets.getAsset("/assets/characters/enemy/skeleton/skeletonWithBg.png")),

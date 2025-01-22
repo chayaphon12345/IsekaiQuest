@@ -17,7 +17,7 @@ public class ElveneSkill extends SkillAction {
                 "Hail of Arrows",
                 4,
                 new Image(Assets.getAsset("/assets/actions/elvene/elveneSkill.png")),
-                Target.AllEnemy
+                Target.Enemy
         );
         type = ActionType.Physical;
     }

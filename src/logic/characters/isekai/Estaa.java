@@ -24,7 +24,7 @@ public class Estaa extends Support {
         super(
                 "Jolly",
                 "Estaa",
-                new Stats(210, 10, 12, 35, 20),
+                new Stats(210, 10, 12, 35, 20, 25, 35, 15),
                 new Image(Assets.getAsset("/assets/characters/estaa/icon.png")),
                 new Image(Assets.getAsset("/assets/characters/estaa/estaa.png")),
                 new Image(Assets.getAsset("/assets/characters/estaa/estaaWithBg.png")),

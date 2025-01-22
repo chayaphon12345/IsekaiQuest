@@ -25,7 +25,7 @@ public class Mewten extends Attacker {
         super(
                 "Kitsuneko",
                 "Mewten",
-                new Stats(320, 28, 21, 2, 20),
+                new Stats(320, 28, 21, 2, 20, 40, 35, 15),
                 new Image(Assets.getAsset("/assets/characters/mewten/mewtenCloseUp.png")),
                 new Image(Assets.getAsset("/assets/characters/mewten/mewten.png")),
                 new Image(Assets.getAsset("/assets/characters/mewten/mewtenWithBg.png")),

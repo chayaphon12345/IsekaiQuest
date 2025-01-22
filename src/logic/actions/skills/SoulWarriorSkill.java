@@ -17,7 +17,7 @@ public class SoulWarriorSkill extends SkillAction {
                 "Soul Gluttony!",
                 4,
                 new Image(Assets.getAsset("/assets/actions/enemy/enemyAction.png")),
-                Target.AllEnemy
+                Target.Enemy
         );
         type = ActionType.Magical;
     }

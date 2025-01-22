@@ -9,23 +9,28 @@ public class Stats implements Cloneable {
     private int attack;
     private int defense;
     private int magic;
-
     private int magicDef;
+    private int lure;
+    private int accuracy;
+    private int evade;
 
-    public Stats(int health, int attack, int defense, int magic, int magicDef) {
+    public Stats(int health, int attack, int defense, int magic, int magicDef, int lure, int accuracy, int evade) {
         this.MAX_HP = health;
         this.health = health;
         this.attack = attack;
         this.defense = defense;
         this.magic = magic;
         this.magicDef = magicDef;
+        this.lure = lure;
+        this.accuracy = accuracy;
+        this.evade = evade;
     }
 
     @Override
     public Stats clone() {
         try {
             Stats stats = (Stats) super.clone();
-            return new Stats(health, attack, defense, magic, magicDef);
+            return new Stats(health, attack, defense, magic, magicDef, lure, accuracy, evade);
         } catch (CloneNotSupportedException e) {
             throw new RuntimeException(e);
         }
@@ -83,5 +88,32 @@ public class Stats implements Cloneable {
     public void setMAX_HP(int MAX_HP) {
         if (MAX_HP < 0) MAX_HP = 0;
         this.MAX_HP = MAX_HP;
+    }
+
+    public int getLure() {
+        return lure;
+    }
+
+    public void setLure(int lure) {
+        if (lure < 0) lure = 0;
+        this.lure = lure;
+    }
+
+    public int getAccuracy() {
+        return accuracy;
+    }
+
+    public void setAccuracy(int accuracy) {
+        if (accuracy < 0) accuracy = 0;
+        this.accuracy = accuracy;
+    }
+
+    public int getEvade() {
+        return evade;
+    }
+
+    public void setEvade(int evade) {
+        if (evade < 0) evade = 0;
+        this.evade = evade;
     }
 }

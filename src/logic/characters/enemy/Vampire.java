@@ -23,7 +23,7 @@ public class Vampire extends Attacker {
         super(
                 "",
                 "Vampire",
-                new Stats(140, 20, 18, 40, 20),
+                new Stats(140, 20, 18, 40, 20, 27, 40, 22),
                 new Image(Assets.getAsset("/assets/characters/enemy/vampire/icon.png")),
                 new Image(Assets.getAsset("/assets/characters/enemy/vampire/vampire.png")),
                 new Image(Assets.getAsset("/assets/characters/enemy/vampire/vampireWithBg.png")),
@@ -38,7 +38,7 @@ public class Vampire extends Attacker {
         super(
                 "",
                 "Vampire",
-                new Stats(140, 20, 18, 40, 20),
+                new Stats(140, 20, 18, 40, 20, 27, 40, 22),
                 new Image(Assets.getAsset("/assets/characters/enemy/vampire/icon.png")),
                 new Image(Assets.getAsset("/assets/characters/enemy/vampire/vampire.png")),
                 new Image(Assets.getAsset("/assets/characters/enemy/vampire/vampireWithBg.png")),

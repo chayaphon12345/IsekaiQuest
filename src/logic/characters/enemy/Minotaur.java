@@ -21,7 +21,7 @@ public class Minotaur extends Attacker {
         super(
                 "",
                 "Minotaur",
-                new Stats(260, 35, 22, 10, 8),
+                new Stats(260, 35, 22, 10, 8, 50, 30, 15),
                 new Image(Assets.getAsset("/assets/characters/enemy/minotaur/icon.png")),
                 new Image(Assets.getAsset("/assets/characters/enemy/minotaur/minotaur.png")),
                 new Image(Assets.getAsset("/assets/characters/enemy/minotaur/minotaurWithBg.png")),
@@ -39,7 +39,7 @@ public class Minotaur extends Attacker {
         super(
                 "",
                 "Minotaur",
-                new Stats(260, 35, 22, 10, 8),
+                new Stats(260, 35, 22, 10, 8, 50, 30, 15),
                 new Image(Assets.getAsset("/assets/characters/enemy/minotaur/icon.png")),
                 new Image(Assets.getAsset("/assets/characters/enemy/minotaur/minotaur.png")),
                 new Image(Assets.getAsset("/assets/characters/enemy/minotaur/minotaurWithBg.png")),

@@ -21,7 +21,7 @@ public class Cyclops extends Support {
         super(
                 "",
                 "Cyclops",
-                new Stats(240, 25, 18, 0, 0),
+                new Stats(240, 25, 18, 0, 0, 30, 28, 13),
                 new Image(Assets.getAsset("/assets/characters/enemy/cyclops/icon.png")),
                 new Image(Assets.getAsset("/assets/characters/enemy/cyclops/cyclops.png")),
                 new Image(Assets.getAsset("/assets/characters/enemy/cyclops/cyclopsWithBg.png")),
@@ -35,7 +35,7 @@ public class Cyclops extends Support {
         super(
                 "",
                 "Cyclops",
-                new Stats(240, 25, 18, 0, 0),
+                new Stats(240, 25, 18, 0, 0, 30, 28, 13),
                 new Image(Assets.getAsset("/assets/characters/enemy/cyclops/icon.png")),
                 new Image(Assets.getAsset("/assets/characters/enemy/cyclops/cyclops.png")),
                 new Image(Assets.getAsset("/assets/characters/enemy/cyclops/cyclopsWithBg.png")),

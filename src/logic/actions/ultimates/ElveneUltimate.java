@@ -17,7 +17,7 @@ public class ElveneUltimate extends UltimateAction {
                 "Penetrate to The Heart",
                 0,
                 new Image(Assets.getAsset("/assets/actions/elvene/elveneUltimate.png")),
-                Target.AllEnemy
+                Target.Enemy
         );
         type = ActionType.Physical;
         this.spiritCost = 25;

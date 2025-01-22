@@ -22,7 +22,7 @@ public class Lafy extends Support {
         super(
                 "Hanabi",
                 "Lafy",
-                new Stats(250, 15, 15, 22, 20),
+                new Stats(250, 15, 15, 22, 20, 28, 35, 25),
                 new Image(Assets.getAsset("/assets/characters/lafy/icon.png")),
                 new Image(Assets.getAsset("/assets/characters/lafy/lafy.png")),
                 new Image(Assets.getAsset("/assets/characters/lafy/lafyWithBg.png")),

@@ -258,7 +258,7 @@ public abstract class BaseCharacter implements Cloneable {
     public void getTarget(Action action) {
         Target targetType = action.getTargetType();
         if(targetType == Target.Enemy) getEnemy(action);
-        else if(targetType == Target.AllEnemy) getAllEnemy(action);
+//        else if(targetType == Target.AllEnemy) getAllEnemy(action);
         else if(targetType == Target.Friend) getFriend(action);
         else if(targetType == Target.Both) getBoth(action);
         else if(targetType == Target.Self) getSelf(action);
@@ -266,74 +266,78 @@ public abstract class BaseCharacter implements Cloneable {
 
     public void getEnemy(Action action){
         if(!isBot){
-            if(!GameController.getInstance().getEnemyTeam().getFront().isEmpty()){
-                GameController.getInstance().getEnemyTeam().getFront().forEach((character)->character.setTargetable(true));
-            } else if (!GameController.getInstance().getEnemyTeam().getMid().isEmpty()) {
-                GameController.getInstance().getEnemyTeam().getMid().forEach((character)->character.setTargetable(true));
-            } else if (!GameController.getInstance().getEnemyTeam().getRear().isEmpty()) {
-                GameController.getInstance().getEnemyTeam().getRear().forEach((character)->character.setTargetable(true));
-            } else {
-                System.out.println("error! There is no target");
-                throw new RuntimeException("There is no target");
-            }
+//            if(!GameController.getInstance().getEnemyTeam().getFront().isEmpty()){
+//                GameController.getInstance().getEnemyTeam().getFront().forEach((character)->character.setTargetable(true));
+//            } else if (!GameController.getInstance().getEnemyTeam().getMid().isEmpty()) {
+//                GameController.getInstance().getEnemyTeam().getMid().forEach((character)->character.setTargetable(true));
+//            } else if (!GameController.getInstance().getEnemyTeam().getRear().isEmpty()) {
+//                GameController.getInstance().getEnemyTeam().getRear().forEach((character)->character.setTargetable(true));
+//            } else {
+//                System.out.println("error! There is no target");
+//                throw new RuntimeException("There is no target");
+//            }
+            GameController.getInstance().getEnemyTeam().getMembers().forEach((character)->character.setTargetable(true));
             GameController.getInstance().setCurrentAction(action);
             GameController.getInstance().showTargetCharacters();
             System.out.println("found target!");
         } else {
-            if(!GameController.getInstance().getPlayerTeam().getFront().isEmpty()){
-                GameController.getInstance().getPlayerTeam().getFront().forEach((character)->character.setTargetable(true));
-            } else if (!GameController.getInstance().getPlayerTeam().getMid().isEmpty()) {
-                GameController.getInstance().getPlayerTeam().getMid().forEach((character)->character.setTargetable(true));
-            } else if (!GameController.getInstance().getPlayerTeam().getRear().isEmpty()) {
-                GameController.getInstance().getPlayerTeam().getRear().forEach((character)->character.setTargetable(true));
-            } else {
-                System.out.println("error! There is no target");
-                throw new RuntimeException("There is no target");
-            }
+//            if(!GameController.getInstance().getPlayerTeam().getFront().isEmpty()){
+//                GameController.getInstance().getPlayerTeam().getFront().forEach((character)->character.setTargetable(true));
+//            } else if (!GameController.getInstance().getPlayerTeam().getMid().isEmpty()) {
+//                GameController.getInstance().getPlayerTeam().getMid().forEach((character)->character.setTargetable(true));
+//            } else if (!GameController.getInstance().getPlayerTeam().getRear().isEmpty()) {
+//                GameController.getInstance().getPlayerTeam().getRear().forEach((character)->character.setTargetable(true));
+//            } else {
+//                System.out.println("error! There is no target");
+//                throw new RuntimeException("There is no target");
+//            }
+            GameController.getInstance().getPlayerTeam().getMembers().forEach((character)->character.setTargetable(true));
             GameController.getInstance().setCurrentAction(action);
             System.out.println("found target!");
             botActivateAction(action);
         }
     }
 
-    public void getAllEnemy(Action action){
-        if(!isBot) {
-            GameController.getInstance().getBattleBoard().getController().getAllCards().forEach(card -> {
-                if(GameController.isEnemyTeam(card.getController().getCharacter())) {
-                    card.getController().getCharacter().setTargetable(true);
-                }
-            });
-            GameController.getInstance().setCurrentAction(action);
-            GameController.getInstance().showTargetCharacters();
-            System.out.println("found target!");
-        } else {
-            GameController.getInstance().getBattleBoard().getController().getAllCards().forEach(card -> {
-                if(!GameController.isEnemyTeam(card.getController().getCharacter())) {
-                    card.getController().getCharacter().setTargetable(true);
-                }
-            });
-            GameController.getInstance().setCurrentAction(action);
-            System.out.println("found target!");
-            botActivateAction(action);
-        }
-    }
+//    public void getAllEnemy(Action action){
+//        if(!isBot) {
+//            GameController.getInstance().getBattleBoard().getController().getAllCards().forEach(card -> {
+//                if(GameController.isEnemyTeam(card.getController().getCharacter())) {
+//                    card.getController().getCharacter().setTargetable(true);
+//                }
+//            });
+//            GameController.getInstance().setCurrentAction(action);
+//            GameController.getInstance().showTargetCharacters();
+//            System.out.println("found target!");
+//        } else {
+//            GameController.getInstance().getBattleBoard().getController().getAllCards().forEach(card -> {
+//                if(!GameController.isEnemyTeam(card.getController().getCharacter())) {
+//                    card.getController().getCharacter().setTargetable(true);
+//                }
+//            });
+//            GameController.getInstance().setCurrentAction(action);
+//            System.out.println("found target!");
+//            botActivateAction(action);
+//        }
+//    }
 
     public void getFriend(Action action){
         if(!isBot) {
-            GameController.getInstance().getBattleBoard().getController().getAllCards().forEach(card -> {
-                if(!GameController.isEnemyTeam(card.getController().getCharacter())) {
-                    card.getController().getCharacter().setTargetable(true);
-                }
-            });
+//            GameController.getInstance().getBattleBoard().getController().getAllCards().forEach(card -> {
+//                if(!GameController.isEnemyTeam(card.getController().getCharacter())) {
+//                    card.getController().getCharacter().setTargetable(true);
+//                }
+//            });
+            GameController.getInstance().getPlayerTeam().getMembers().forEach((character)->character.setTargetable(true));
             GameController.getInstance().setCurrentAction(action);
             GameController.getInstance().showTargetCharacters();
             System.out.println("found target!");
         } else {
-            GameController.getInstance().getBattleBoard().getController().getAllCards().forEach(card -> {
-                if(GameController.isEnemyTeam(card.getController().getCharacter())) {
-                    card.getController().getCharacter().setTargetable(true);
-                }
-            });
+//            GameController.getInstance().getBattleBoard().getController().getAllCards().forEach(card -> {
+//                if(GameController.isEnemyTeam(card.getController().getCharacter())) {
+//                    card.getController().getCharacter().setTargetable(true);
+//                }
+//            });
+            GameController.getInstance().getEnemyTeam().getMembers().forEach((character)->character.setTargetable(true));
             GameController.getInstance().setCurrentAction(action);
             System.out.println("found target!");
             botActivateAction(action);
@@ -342,44 +346,48 @@ public abstract class BaseCharacter implements Cloneable {
 
     public void getBoth(Action action){
         if(!isBot) {
-            // get enemy
-            if(!GameController.getInstance().getEnemyTeam().getFront().isEmpty()){
-                GameController.getInstance().getEnemyTeam().getFront().forEach((character)->character.setTargetable(true));
-            } else if (!GameController.getInstance().getEnemyTeam().getMid().isEmpty()) {
-                GameController.getInstance().getEnemyTeam().getMid().forEach((character)->character.setTargetable(true));
-            } else if (!GameController.getInstance().getEnemyTeam().getRear().isEmpty()) {
-                GameController.getInstance().getEnemyTeam().getRear().forEach((character)->character.setTargetable(true));
-            } else {
-                System.out.println("error! There is no target");
-                throw new RuntimeException("There is no target");
-            }
-            // get friend
-            GameController.getInstance().getBattleBoard().getController().getAllCards().forEach(card -> {
-                if(!GameController.isEnemyTeam(card.getController().getCharacter())) {
-                    card.getController().getCharacter().setTargetable(true);
-                }
-            });
+//            // get enemy
+//            if(!GameController.getInstance().getEnemyTeam().getFront().isEmpty()){
+//                GameController.getInstance().getEnemyTeam().getFront().forEach((character)->character.setTargetable(true));
+//            } else if (!GameController.getInstance().getEnemyTeam().getMid().isEmpty()) {
+//                GameController.getInstance().getEnemyTeam().getMid().forEach((character)->character.setTargetable(true));
+//            } else if (!GameController.getInstance().getEnemyTeam().getRear().isEmpty()) {
+//                GameController.getInstance().getEnemyTeam().getRear().forEach((character)->character.setTargetable(true));
+//            } else {
+//                System.out.println("error! There is no target");
+//                throw new RuntimeException("There is no target");
+//            }
+//            // get friend
+//            GameController.getInstance().getBattleBoard().getController().getAllCards().forEach(card -> {
+//                if(!GameController.isEnemyTeam(card.getController().getCharacter())) {
+//                    card.getController().getCharacter().setTargetable(true);
+//                }
+//            });
+            GameController.getInstance().getPlayerTeam().getMembers().forEach((character)->character.setTargetable(true));
+            GameController.getInstance().getEnemyTeam().getMembers().forEach((character)->character.setTargetable(true));
             GameController.getInstance().setCurrentAction(action);
             GameController.getInstance().showTargetCharacters();
             System.out.println("found target!");
         } else {
-            // bot get enemy (player)
-            if(!GameController.getInstance().getPlayerTeam().getFront().isEmpty()){
-                GameController.getInstance().getPlayerTeam().getFront().forEach((character)->character.setTargetable(true));
-            } else if (!GameController.getInstance().getPlayerTeam().getMid().isEmpty()) {
-                GameController.getInstance().getPlayerTeam().getMid().forEach((character)->character.setTargetable(true));
-            } else if (!GameController.getInstance().getPlayerTeam().getRear().isEmpty()) {
-                GameController.getInstance().getPlayerTeam().getRear().forEach((character)->character.setTargetable(true));
-            } else {
-                System.out.println("error! There is no target");
-                throw new RuntimeException("There is no target");
-            }
-            // bot get friend
-            GameController.getInstance().getBattleBoard().getController().getAllCards().forEach(card -> {
-                if(GameController.isEnemyTeam(card.getController().getCharacter())) {
-                    card.getController().getCharacter().setTargetable(true);
-                }
-            });
+//            // bot get enemy (player)
+//            if(!GameController.getInstance().getPlayerTeam().getFront().isEmpty()){
+//                GameController.getInstance().getPlayerTeam().getFront().forEach((character)->character.setTargetable(true));
+//            } else if (!GameController.getInstance().getPlayerTeam().getMid().isEmpty()) {
+//                GameController.getInstance().getPlayerTeam().getMid().forEach((character)->character.setTargetable(true));
+//            } else if (!GameController.getInstance().getPlayerTeam().getRear().isEmpty()) {
+//                GameController.getInstance().getPlayerTeam().getRear().forEach((character)->character.setTargetable(true));
+//            } else {
+//                System.out.println("error! There is no target");
+//                throw new RuntimeException("There is no target");
+//            }
+//            // bot get friend
+//            GameController.getInstance().getBattleBoard().getController().getAllCards().forEach(card -> {
+//                if(GameController.isEnemyTeam(card.getController().getCharacter())) {
+//                    card.getController().getCharacter().setTargetable(true);
+//                }
+//            });
+            GameController.getInstance().getPlayerTeam().getMembers().forEach((character)->character.setTargetable(true));
+            GameController.getInstance().getEnemyTeam().getMembers().forEach((character)->character.setTargetable(true));
             GameController.getInstance().setCurrentAction(action);
             System.out.println("found target!");
             botActivateAction(action);

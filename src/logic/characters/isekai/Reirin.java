@@ -21,7 +21,7 @@ public class Reirin extends Attacker {
         super(
                 "Kamiyu",
                 "Reirin",
-                new Stats(240, 12, 25, 28, 26),
+                new Stats(240, 12, 25, 28, 26, 30, 35, 20),
                 new Image(Assets.getAsset("/assets/characters/reirin/icon.png")),
                 new Image(Assets.getAsset("/assets/characters/reirin/reirin.png")),
                 new Image(Assets.getAsset("/assets/characters/reirin/reirinWithBg.png")),

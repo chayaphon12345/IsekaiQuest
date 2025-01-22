@@ -1,5 +1,5 @@
 package logic.actions;
 
 public enum Target {
-    Enemy, AllEnemy, Friend, Both, Self
+    Enemy, Friend, Both, Self
 }
