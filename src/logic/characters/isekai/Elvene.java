@@ -20,7 +20,7 @@ public class Elvene extends Attacker {
         super(
                 "Aranis",
                 "Elvene",
-                new Stats(190, 40, 20, 20, 15),
+                new Stats(200, 40, 20, 20, 15),
                 new Image(Assets.getAsset("/assets/characters/elvene/icon.png")),
                 new Image(Assets.getAsset("/assets/characters/elvene/elvene.png")),
                 new Image(Assets.getAsset("/assets/characters/elvene/elveneWithBg.png")),

@@ -68,6 +68,7 @@ public class VampireSkill extends SkillAction implements Debuffable, Healable {
 
     @Override
     public void heal(BaseCharacter character, int amount) {
+        character.getCard().getController().displayHeal(amount);
         Stats newStats = character.getStats();
         newStats.setHealth(newStats.getHealth() + amount);
         character.setStats(newStats);

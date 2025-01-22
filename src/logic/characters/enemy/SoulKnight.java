@@ -20,13 +20,13 @@ public class SoulKnight extends Attacker {
         super(
                 "",
                 "Soul Knight",
-                new Stats(200, 40, 15, 20, 16),
+                new Stats(200, 28, 15, 20, 16),
                 new Image(Assets.getAsset("/assets/characters/enemy/skeleton/icon.png")),
-                new Image(Assets.getAsset("/assets/characters/enemy/skeleton/skeleton.png")),
+                new Image(Assets.getAsset("/assets/characters/enemy/soulKnight/soulKnight.png")),
                 new Image(Assets.getAsset("/assets/characters/enemy/skeleton/skeletonWithBg.png")),
                 new Image(Assets.getAsset("/assets/characters/enemy/skeleton/icon.png")),
-                300,
-                200
+                320,
+                220
         );
         super.setActionList(new ArrayList<Action>(Arrays.asList(new SoulKnightNormal(this), new SoulKnightSkill(this), new SoulKnightUltimate(this))));
     }
@@ -35,13 +35,13 @@ public class SoulKnight extends Attacker {
         super(
                 "",
                 "Soul Knight",
-                new Stats(200, 40, 15, 20, 16),
+                new Stats(200, 28, 15, 20, 16),
                 new Image(Assets.getAsset("/assets/characters/enemy/skeleton/icon.png")),
-                new Image(Assets.getAsset("/assets/characters/enemy/skeleton/skeleton.png")),
+                new Image(Assets.getAsset("/assets/characters/enemy/soulKnight/soulKnight.png")),
                 new Image(Assets.getAsset("/assets/characters/enemy/skeleton/skeletonWithBg.png")),
                 new Image(Assets.getAsset("/assets/characters/enemy/skeleton/icon.png")),
-                300,
-                200
+                320,
+                220
         );
         super.setActionList(new ArrayList<Action>(Arrays.asList(new SoulKnightNormal(this), new SoulKnightSkill(this), new SoulKnightUltimate(this))));
         this.setBot(isBot);

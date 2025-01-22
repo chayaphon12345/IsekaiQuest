@@ -37,13 +37,13 @@ public class ReirinUltimate extends UltimateAction implements Debuffable {
             giveDebuff(enemyTeam.get(i));
         }
         GameController.getInstance().getPlayer().setCurrentSpirit(
-                GameController.getInstance().getPlayer().getCurrentSpirit() + 2
+                GameController.getInstance().getPlayer().getCurrentSpirit() + 4
         );
     }
 
     @Override
     public String getDescription() {
-        return "Attack 1 enemy. Damage base on own MAT + 15. Then give every enemy a debuff 'Scare' for 2 turns. After that, gain 2 spirit points." +
+        return "Attack 1 enemy. Damage base on own MAT + 15. Then give every enemy a debuff 'Scare' for 2 turns. After that, gain 4 spirit points." +
                 "";
     }
 

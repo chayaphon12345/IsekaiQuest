@@ -32,7 +32,7 @@ public class LafyUltimate extends UltimateAction implements Buffable, Healable {
     @Override
     public void activate(BaseCharacter targetCharacter) {
         GameController.getInstance().getPlayerTeam().getMembers().forEach(character -> {
-            heal(character, 15);
+            heal(character, 20);
 
             giveBuff(character);
         });
@@ -40,7 +40,7 @@ public class LafyUltimate extends UltimateAction implements Buffable, Healable {
 
     @Override
     public String getDescription() {
-        return "Heal everyone in our team by 15 HP. Then give everyone in our team a buff 'Purified' for 2 turns. " +
+        return "Heal everyone in our team by 20 HP. Then give everyone in our team a buff 'Purified' for 2 turns. " +
                 "And if a buff 'Half-Life Sacrifice' is never used, then give the buff 'Half-Life Sacrifice' to everyone in our team except Lafy for 5 turns";
     }
 
@@ -95,6 +95,7 @@ public class LafyUltimate extends UltimateAction implements Buffable, Healable {
 
     @Override
     public void heal(BaseCharacter character, int amount) {
+        character.getCard().getController().displayHeal(amount);
         Stats newStats = character.getStats();
         newStats.setHealth(newStats.getHealth() + amount);
         character.setStats(newStats);

@@ -21,7 +21,7 @@ public class Kona extends Attacker {
         super(
                 "Draki",
                 "Kona",
-                new Stats(175, 28, 14, 45, 22),
+                new Stats(180, 28, 14, 45, 22),
                 new Image(Assets.getAsset("/assets/characters/kona/icon.png")),
                 new Image(Assets.getAsset("/assets/characters/kona/kona.png")),
                 new Image(Assets.getAsset("/assets/characters/kona/konaWithBg.png")),

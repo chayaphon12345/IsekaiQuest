@@ -11,9 +11,9 @@ public class Level2 extends Level {
 
     @Override
     protected void addMember() {
-        getEnemyTeam().addCharacter(new Minotaur(true), Team.Line.FRONT);
-        getEnemyTeam().addCharacter(new Vampire(true), Team.Line.MID);
-        getEnemyTeam().addCharacter(new Vampire(true), Team.Line.MID);
+        getEnemyTeam().addCharacter(new SoulWarrior(true), Team.Line.FRONT);
+        getEnemyTeam().addCharacter(new SoulKnight(true), Team.Line.MID);
+        getEnemyTeam().addCharacter(new SoulKnight(true), Team.Line.MID);
         getEnemyTeam().addCharacter(new Dullahan(true), Team.Line.REAR);
     }
 }

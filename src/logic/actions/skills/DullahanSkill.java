@@ -29,8 +29,8 @@ public class DullahanSkill extends SkillAction {
             Stats newStats = team.getMembers().get(i).getStats();
             newStats.setAttack(newStats.getAttack() + 1);
             newStats.setMagic(newStats.getMagic() + 1);
-            newStats.setAttack(newStats.getDefense() + 1);
-            newStats.setMagic(newStats.getMagicDef() + 1);
+            newStats.setDefense(newStats.getDefense() + 1);
+            newStats.setMagicDef(newStats.getMagicDef() + 1);
             team.getMembers().get(i).setStats(newStats);
         }
     }

@@ -37,7 +37,7 @@ public class GameController {
     private Phase currentPhase;
     private Action currentAction;
     private int round;
-    private Timer timer;
+//    private Timer timer;
     private Thread thread;
 
     private GameController() {}
@@ -50,7 +50,7 @@ public class GameController {
         initPlayerTeam();
         initEnemyTeam();
         SoundManager.getInstance().playBGM(SoundManager.BGM.BATTLE_SCENE);
-        timer = new Timer();
+//        timer = new Timer();
         if(playerControlBarController!=null){
             playerControlBarController.updateManaBar(player.getCurrentMana());
             playerControlBarController.updateSpiritBar(player.getCurrentSpirit());
@@ -187,20 +187,20 @@ public class GameController {
     public void actionPhase() {
         thread = new Thread(() -> {
             try {
-                timer.setDuration(60000);
-                timer.start(() -> {
-                    Platform.runLater(new Runnable() {
-                        @Override
-                        public void run() {
-                            battleSceneController.setPercentTimerRect(timer.getPercentage());
-                            if (Router.getCurrentAppScene() != Config.AppScene.BATTLE) {
-                                timer.stop();
-                            }
-                        }
-                    });
-                }, () -> {
-                    enemyTurn();
-                });
+//                timer.setDuration(60000);
+//                timer.start(() -> {
+//                    Platform.runLater(new Runnable() {
+//                        @Override
+//                        public void run() {
+//                            battleSceneController.setPercentTimerRect(timer.getPercentage());
+//                            if (Router.getCurrentAppScene() != Config.AppScene.BATTLE) {
+//                                timer.stop();
+//                            }
+//                        }
+//                    });
+//                }, () -> {
+//                    enemyTurn();
+//                });
                 currentPhase = Phase.action;
                 Platform.runLater(new Runnable() {
                     @Override
@@ -218,7 +218,7 @@ public class GameController {
     }
 
     public void enemyTurn() {
-        timer.stop();
+//        timer.stop();
         thread = new Thread(() -> {
             try {
                 currentPhase = Phase.enemyTurn;
@@ -234,22 +234,36 @@ public class GameController {
                 Thread.sleep(500);
                 runEffectByEvent(TriggerEvent.NEW_TURN);
                 Thread.sleep(1000);
+                
 
                 // enemy combat logic
-                Random random = new Random();
-                ArrayList<BaseCharacter> selectedCharacters = new ArrayList<>();
-                ArrayList<BaseCharacter> unselectedCharacters = new ArrayList<>();
-                enemyTeam.getMembers().forEach(character -> unselectedCharacters.add(character));
-                BaseCharacter selected1 = unselectedCharacters.get(random.nextInt(unselectedCharacters.size()));
-                selectedCharacters.add(selected1);
-                unselectedCharacters.remove(selected1);
-                if (!unselectedCharacters.isEmpty()) {
-                    BaseCharacter selected2 = unselectedCharacters.get(random.nextInt(unselectedCharacters.size()));
-                    selectedCharacters.add(selected2);
-                    unselectedCharacters.remove(selected2);
-                }
+//                Random random = new Random();
+//                ArrayList<BaseCharacter> selectedCharacters = new ArrayList<>();
+//                ArrayList<BaseCharacter> unselectedCharacters = new ArrayList<>();
+//                enemyTeam.getMembers().forEach(character -> unselectedCharacters.add(character));
+//                BaseCharacter selected1 = unselectedCharacters.get(random.nextInt(unselectedCharacters.size()));
+//                selectedCharacters.add(selected1);
+//                unselectedCharacters.remove(selected1);
+//                if (!unselectedCharacters.isEmpty()) {
+//                    BaseCharacter selected2 = unselectedCharacters.get(random.nextInt(unselectedCharacters.size()));
+//                    selectedCharacters.add(selected2);
+//                    unselectedCharacters.remove(selected2);
+//                }
 
-                selectedCharacters.forEach(character -> {
+//                selectedCharacters.forEach(character -> {
+//                    try {
+//                        character.performAction(character.getActionList().get(
+//                                character.getActionPattern().get(character.getActionPatternIndex() % character.getActionPattern().size())
+//                        ));
+//                        character.setActionPatternIndex(character.getActionPatternIndex() + 1);
+//                        Thread.sleep(2000);
+//                    } catch (InterruptedException e) {
+//                        System.out.println("error! thread interrupted during enemy do action");
+//                        throw new RuntimeException(e);
+//                    }
+//                });
+
+                getEnemyTeam().getMembers().forEach(character -> {
                     try {
                         character.performAction(character.getActionList().get(
                                 character.getActionPattern().get(character.getActionPatternIndex() % character.getActionPattern().size())

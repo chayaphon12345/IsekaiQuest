@@ -24,7 +24,7 @@
    <children>
       <ImageView fx:id="battleBackground" fitHeight="900.0" fitWidth="1600.0" preserveRatio="true">
          <image>
-            <Image url="@../assets/images/battleBg.png" />
+            <Image url="@../assets/images/battleBg_castle_night.png" />
          </image>
       </ImageView>
       <SubScene fx:id="battleSubScene" fill="#ffffff00" height="900.0" width="1600.0">

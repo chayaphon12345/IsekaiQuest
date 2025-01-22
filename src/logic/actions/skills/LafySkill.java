@@ -32,7 +32,7 @@ public class LafySkill extends SkillAction implements Buffable, Healable {
 
     @Override
     public void activate(BaseCharacter targetCharacter) {
-        heal(targetCharacter, 20);
+        heal(targetCharacter, 30);
 
         giveBuff(targetCharacter);
     }
@@ -44,7 +44,7 @@ public class LafySkill extends SkillAction implements Buffable, Healable {
 
     @Override
     public String getDescription() {
-        return "Heal 1 companion by 20 HP. Then give that companion a buff 'Purified' for 2 turns.";
+        return "Heal 1 companion by 30 HP. Then give that companion a buff 'Purified' for 2 turns.";
     }
 
     @Override
@@ -75,6 +75,7 @@ public class LafySkill extends SkillAction implements Buffable, Healable {
 
     @Override
     public void heal(BaseCharacter character, int amount) {
+        character.getCard().getController().displayHeal(amount);
         Stats newStats = character.getStats();
         newStats.setHealth(newStats.getHealth() + amount);
         character.setStats(newStats);

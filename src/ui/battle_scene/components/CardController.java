@@ -56,6 +56,8 @@ public class CardController extends BaseComponentController implements Selectabl
     @FXML
     private Text damageText;
     @FXML
+    private Text healText;
+    @FXML
     private ImageView effect1;
     @FXML
     private ImageView effect2;
@@ -76,6 +78,7 @@ public class CardController extends BaseComponentController implements Selectabl
         shield.setVisible(false);
         shieldText.setVisible(false);
         damageText.setVisible(false);
+        healText.setVisible(false);
         cardStatusEffects = new ArrayList<>();
         cardStatusEffects.addAll(Arrays.asList(effect1, effect2, effect3, effect4));
         // this make pickup base on geometric shape of this node
@@ -299,6 +302,59 @@ public class CardController extends BaseComponentController implements Selectabl
                 @Override
                 public void run() {
                     damageText.setVisible(false);
+                }
+            });
+        });
+        damageThread.start();
+    }
+
+    public void displayHeal(int amount) {
+        if (amount < 0) amount = 0;
+        int heal = amount;
+        Thread damageThread = new Thread(() -> {
+            Platform.runLater(new Runnable() {
+                @Override
+                public void run() {
+                    healText.setText("+" + heal);
+                    healText.setVisible(true);
+
+                    double damageSize = ((heal/20.0) + 3.0) / 4;
+
+                    ScaleTransition scaleTransition = new ScaleTransition(Duration.seconds(0.9), healText);
+                    scaleTransition.setFromX(4.0 * damageSize );
+                    scaleTransition.setFromY(4.0 * damageSize );
+                    scaleTransition.setToX(2.0 * damageSize );
+                    scaleTransition.setToY(2.0 * damageSize );
+
+                    // Create a fade-in transition
+                    FadeTransition fadeInTransition = new FadeTransition(Duration.seconds(0.9), healText);
+                    fadeInTransition.setFromValue(0);
+                    fadeInTransition.setToValue(1);
+
+                    // Create a fade-out transition
+                    FadeTransition fadeOutTransition = new FadeTransition(Duration.seconds(0.9), healText);
+                    fadeOutTransition.setFromValue(1);
+                    fadeOutTransition.setToValue(0);
+
+                    // Chain the fade transitions
+                    SequentialTransition fadeSequentialTransition = new SequentialTransition();
+                    fadeSequentialTransition.getChildren().addAll(fadeInTransition, fadeOutTransition);
+
+                    // Start the fade sequential transition
+                    fadeSequentialTransition.play();
+
+                    scaleTransition.play();
+                }
+            });
+            try {
+                Thread.sleep(1800);
+            } catch (InterruptedException e) {
+                throw new RuntimeException(e);
+            }
+            Platform.runLater(new Runnable() {
+                @Override
+                public void run() {
+                    healText.setVisible(false);
                 }
             });
         });

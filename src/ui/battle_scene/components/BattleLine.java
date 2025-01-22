@@ -27,7 +27,7 @@ public class BattleLine extends BaseComponent {
         ((BattleLineController) controller).setLine(line);
         controller.init();
         setBorder(new Border(new BorderStroke(Color.BLACK, BorderStrokeStyle.SOLID, null, new BorderWidths(1))));
-        setBackground(Background.fill(new Color(1,1,1,0.6)));
+        setBackground(Background.fill(new Color(1,1,1,0.4)));
     }
 
     @Override
