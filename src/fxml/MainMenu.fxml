@@ -22,7 +22,8 @@
    <children>
       <ImageView fitHeight="1223.0" fitWidth="1822.0" layoutY="-317.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../assets/images/mainMenubg.png" />
+<!--            <Image url="@../assets/images/mainMenubg.png" />-->
+            <Image url="@../assets/images/homeBg3.png" />
          </image>
          <effect>
             <Glow level="0.76" />

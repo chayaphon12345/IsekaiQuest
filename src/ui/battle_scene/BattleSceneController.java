@@ -10,6 +10,7 @@ import javafx.fxml.FXML;
 import javafx.geometry.Pos;
 import javafx.scene.SubScene;
 import javafx.scene.control.Button;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.*;
@@ -20,11 +21,13 @@ import logic.GameController;
 import logic.Phase;
 import logic.actions.Action;
 import logic.effects.Effect;
+import logic.levels.LevelManager;
 import manager.SoundManager;
 import router.Router;
 import ui.battle_scene.components.*;
 import ui.common.PCamera;
 import ui.common.BaseController;
+import utils.Assets;
 import utils.PreDefEffect;
 
 /**
@@ -101,6 +104,7 @@ public class BattleSceneController implements BaseController {
 
         battleBoard = new BattleBoard();
         StackPane _stackPane = new StackPane();
+        battleBackground.setImage(LevelManager.getInstance().getLevel().getBg());
 
         _stackPane.getChildren().add(battleBackground);
         _stackPane.getChildren().add(battleBoard);

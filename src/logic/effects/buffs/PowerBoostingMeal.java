@@ -16,7 +16,7 @@ public class PowerBoostingMeal extends Buff{
                 duration,
                 TriggerType.NOT_TRIGGER,
                 TriggerEvent.NONE,
-                new Image(Assets.getAsset("/assets/effects/atk-mat-boost.png"))
+                new Image(Assets.getAsset("/assets/effects/powerUpMeal.png"))
         );
     }
 

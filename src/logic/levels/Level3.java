@@ -1,11 +1,13 @@
 package logic.levels;
 
+import javafx.scene.image.Image;
 import logic.characters.enemy.*;
 import logic.team.Team;
+import utils.Assets;
 
 public class Level3 extends Level {
     public Level3() {
-        super(new Team("Enemy"), 2);
+        super(new Team("Enemy"), 2, new Image(Assets.getAsset("/assets/images/battleBg_castle_night.png")));
         addMember();
     }
 

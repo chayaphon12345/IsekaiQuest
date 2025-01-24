@@ -13,7 +13,7 @@
 
 <StackPane fx:id="cardPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="195.0" prefWidth="153.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.battle_scene.components.CardController">
    <children>
-      <Rectangle fx:id="bg_rect" arcHeight="5.0" arcWidth="5.0" fill="#ffd2bb" height="150.0" stroke="BLACK" strokeType="INSIDE" width="100.0" />
+      <Rectangle fx:id="bg_rect" arcHeight="5.0" arcWidth="5.0" fill="#acb3bc" height="150.0" stroke="BLACK" strokeType="INSIDE" width="100.0" />
       <AnchorPane prefHeight="168.0" prefWidth="139.0">
          <children>
             <StackPane id="bar" layoutX="27.0" layoutY="174.0" prefHeight="21.0" prefWidth="85.0" style="-fx-background-color: #8E8E8E;">

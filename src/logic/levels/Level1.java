@@ -6,10 +6,11 @@ import logic.characters.enemy.Minotaur;
 import logic.characters.enemy.Skeleton;
 import logic.characters.enemy.Vampire;
 import logic.team.Team;
+import utils.Assets;
 
 public class Level1 extends Level {
     public Level1() {
-        super(new Team("Enemy"), 1);
+        super(new Team("Enemy"), 1, new Image(Assets.getAsset("/assets/images/home.png")));
         addMember();
     }
 

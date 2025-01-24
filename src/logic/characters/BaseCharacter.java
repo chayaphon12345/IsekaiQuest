@@ -408,12 +408,38 @@ public abstract class BaseCharacter implements Cloneable {
     }
 
     public void botActivateAction(Action action) {
+        System.out.println("/////////////////\nbot activate action");
         Random random = new Random();
         ArrayList<BaseCharacter> targets = new ArrayList<>();
         GameController.getInstance().getBattleBoard().getController().getAllCards().forEach(card -> {
             if(card.getController().getCharacter().isTargetable()) targets.add(card.getController().getCharacter());
         });
-        BaseCharacter targetCharacter = targets.get(random.nextInt(targets.size()));
+        System.out.println("target n = " + targets.size());
+
+        ArrayList<Integer> randomRange = new ArrayList<>();
+        int prevVal = 0;
+        for (BaseCharacter target : targets) {
+            prevVal += target.getStats().getLure();
+            randomRange.add(prevVal);
+            System.out.println("lure = " + target.getStats().getLure());
+            System.out.println("cumulative val = " + prevVal);
+        }
+
+        int randomNum = random.nextInt(prevVal);
+        int targetIndex = 0;
+        System.out.println("random num = " + randomNum);
+        for(int i=0; i<randomRange.size(); i++) {
+            if(randomNum < randomRange.get(i)) {
+                targetIndex = i;
+                System.out.println("final random range = " + randomRange.get(i));
+                System.out.println("target i = " + i);
+                break;
+            }
+            System.out.println("random range this round = " + randomRange.get(i));
+        }
+        BaseCharacter targetCharacter = targets.get(targetIndex);
+        System.out.println("target i is " + targetCharacter.getName());
+//        BaseCharacter targetCharacter = targets.get(random.nextInt(targets.size()));
         GameController.getInstance().getPlayerTeam().getMembers().forEach((character)->character.setTargetable(false));
         GameController.getInstance().getEnemyTeam().getMembers().forEach((character)->character.setTargetable(false));
         setActionThisTurn(true);
